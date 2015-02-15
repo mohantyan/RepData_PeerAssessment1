@@ -12,7 +12,6 @@ output:
 ```r
 library(knitr)
 library(lattice)
-library(xtable)
 
 opts_chunk$set(eval = TRUE)
 
@@ -186,21 +185,17 @@ original <- c(mean_original, median_original)
 new_one <- c(mean_new, median_new)
 table <- data.frame(original, new_one)
 result <- apply(table, 1, function(x) (x[2])/(x[1]/100))
-table$compare <- result
-rownames(table)<-c("mean", "median")
-print(xtable(table), type="html")
+```
+
+The mean and median is changed by the following percentage respectively:
+
+```r
+result
 ```
 
 ```
-## <!-- html table generated in R 3.1.2 by xtable 1.7-4 package -->
-## <!-- Sun Feb 15 19:00:46 2015 -->
-## <table border=1>
-## <tr> <th>  </th> <th> original </th> <th> new_one </th> <th> compare </th>  </tr>
-##   <tr> <td align="right"> mean </td> <td align="right"> 10766.19 </td> <td align="right"> 755.74 </td> <td align="right"> 7.02 </td> </tr>
-##   <tr> <td align="right"> median </td> <td align="right"> 10765.00 </td> <td align="right"> 612.00 </td> <td align="right"> 5.69 </td> </tr>
-##    </table>
+## [1] 7.019558 5.685091
 ```
-
 The impact of missing data is therefore seen to indroduce huge deviation by changing the dataset.
 
 
@@ -221,5 +216,5 @@ xyplot(days_DF$new_steps ~ interval | days_DF$dayType, layout = c(1, 2), type = 
        xlab = "Time interval", ylab = "Number of steps", main = "Number of steps v/s Time interval" )
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
 

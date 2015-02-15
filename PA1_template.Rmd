@@ -8,12 +8,9 @@ output:
 
 ## Loading and preprocessing the data
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ```{r}
 library(knitr)
 library(lattice)
-library(xtable)
 
 opts_chunk$set(eval = TRUE)
 
@@ -29,16 +26,10 @@ unzip(destfile)
 
 
 ```
-=======
->>>>>>> 80edf39c3bb508fee88e3394542f967dd3fd3270
-=======
->>>>>>> 80edf39c3bb508fee88e3394542f967dd3fd3270
 
 
 ## What is mean total number of steps taken per day?
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ```{r}
 actdata <- read.csv( "activity.csv")
 
@@ -72,16 +63,10 @@ The median is:
 median_original <- median(total_steps)
 median_original
 ```
-=======
->>>>>>> 80edf39c3bb508fee88e3394542f967dd3fd3270
-=======
->>>>>>> 80edf39c3bb508fee88e3394542f967dd3fd3270
 
 
 ## What is the average daily activity pattern?
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ```{r}
 interval_factor <- factor(interval)
 levels <- nlevels(interval_factor)
@@ -163,11 +148,13 @@ original <- c(mean_original, median_original)
 new_one <- c(mean_new, median_new)
 table <- data.frame(original, new_one)
 result <- apply(table, 1, function(x) (x[2])/(x[1]/100))
-table$compare <- result
-rownames(table)<-c("mean", "median")
-print(xtable(table), type="html")
+
 ```
 
+The mean and median is changed by the following percentage respectively:
+```{r}
+result
+```
 The impact of missing data is therefore seen to indroduce huge deviation by changing the dataset.
 
 
@@ -189,17 +176,3 @@ xyplot(days_DF$new_steps ~ interval | days_DF$dayType, layout = c(1, 2), type = 
 
 ```
 
-=======
-=======
->>>>>>> 80edf39c3bb508fee88e3394542f967dd3fd3270
-
-
-## Imputing missing values
-
-
-
-## Are there differences in activity patterns between weekdays and weekends?
-<<<<<<< HEAD
->>>>>>> 80edf39c3bb508fee88e3394542f967dd3fd3270
-=======
->>>>>>> 80edf39c3bb508fee88e3394542f967dd3fd3270
